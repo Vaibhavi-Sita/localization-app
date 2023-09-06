@@ -74,3 +74,4 @@ components:
       underline: false, icon: 'fa:download'}
     name: download
     layout_properties: {grid_position: 'XDFUET,RBKNWT'}
+    event_bindings: {click: downloadData}

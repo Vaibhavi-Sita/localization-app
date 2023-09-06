@@ -44,8 +44,9 @@ class Form1(Form1Template):
       else:
           return new_data
 
-  def download(self, **event_args):
+  def downloadData(self, **event_args):
     """This method is called when the downlaod button is clicked"""
     # BlobMedia("text/plain", self.outputData, [name=output])
-    anvil.media.download(self.outputData.text) 
+    updatedJsonFile = anvil.BlobMedia(content_type="text/plain", content=self.outputData.text.encode(), name="output.json")
+    anvil.media.download(updatedJsonFile) 
   
