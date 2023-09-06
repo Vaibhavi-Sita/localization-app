@@ -39,7 +39,7 @@ components:
         border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
         auto_expand: false, font: '', spacing_above: small, spacing_below: small,
         italic: false, background: '', bold: false, underline: false}
-      name: newDta
+      name: newData
       layout_properties: {grid_position: 'GMGHYH,VKQMQU'}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
@@ -53,9 +53,9 @@ components:
       foreground: '', visible: true, text: SUBMIT, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
-    name: getData
+    name: submit
     layout_properties: {grid_position: 'JZZUTK,RWFFCU'}
-    event_bindings: {click: get}
+    event_bindings: {click: getData}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Output .json, font_size: null, font: '', spacing_above: small,
@@ -72,5 +72,5 @@ components:
       foreground: '', visible: true, text: Download, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: 'fa:download'}
-    name: button_1
+    name: download
     layout_properties: {grid_position: 'XDFUET,RBKNWT'}
