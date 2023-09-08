@@ -10,6 +10,20 @@ components:
   layout_properties: {slot: default}
   name: column_panel_1
   components:
+  - type: Button
+    properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: SWITCH TO DIRECTORY MODE, font_size: 10,
+      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
+    name: button_5
+    layout_properties: {grid_position: 'LWKEST,AZDWPU'}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: FILE MODE, font_size: 18, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_5
+    layout_properties: {grid_position: 'TILIXV,YRDRZK'}
   - type: ColumnPanel
     properties: {col_widths: '{"JNHMRT":25,"JXZWXC":35}'}
     layout_properties: {grid_position: 'HLLJYM,ZYQPXV'}
