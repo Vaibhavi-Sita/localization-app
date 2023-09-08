@@ -33,12 +33,12 @@ class Form1(Form1Template):
           # Discarded keys       
           for key in new_data:
               if key not in old_data:
-                self.logs.text += "Discarded: " + new_data[key]
+                self.logs.text += "Discarded: " + key + ": " + new_data[key] + "\n"
           #         updated_data[key] = new_data[key]
           # Newly Added keys       
           for key in old_data:
               if key not in new_data:
-                self.logs.text += "Newly Added: " + old_data[key]
+                self.logs.text += "Newly Added: " + key + ": " + old_data[key] + "\n"
           return updated_data
       elif isinstance(old_data, list) and isinstance(new_data, list):
           updated_data = []
