@@ -5,7 +5,7 @@ container:
 components:
 - type: ColumnPanel
   properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: large, spacing_above: small, col_widths: '{"JPKZON":35,"JAMGWB":25,"TPIYWH":10,"ZYQPXV":35,"RYIMHL":35,"QWGHHI":35,"IXMYMG":15,"MZAXQK":15}',
+    wrap_on: mobile, col_spacing: large, spacing_above: small, col_widths: '{"JPKZON":35,"JAMGWB":25,"TPIYWH":12,"ZYQPXV":35,"RYIMHL":35,"MZAXQK":17,"APPHBI":23,"AJECUE":8}',
     spacing_below: small, background: ''}
   name: column_panel_1
   layout_properties: {slot: default}
@@ -83,14 +83,14 @@ components:
       spacing_above: small, icon_align: right_edge, spacing_below: small, italic: false,
       background: '', bold: false, underline: false, icon: 'fa:info-circle'}
     name: button_3
-    layout_properties: {grid_position: 'MYNPEQ,QWGHHI', full_width_row: false}
+    layout_properties: {grid_position: 'MYNPEQ,APPHBI', full_width_row: false}
   - type: Label
     properties: {role: null, align: left, tooltip: Updates (discarded / newly added keys). Existing data will remain the same,
       border: '', foreground: '', visible: true, text: Logs, font_size: null, font: '',
       spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '', bold: false, underline: false, icon: ''}
     name: label_4
-    layout_properties: {grid_position: 'MYNPEQ,IXMYMG', full_width_row: false}
+    layout_properties: {grid_position: 'MYNPEQ,AJECUE', full_width_row: false}
   - type: Button
     properties: {role: null, align: right, tooltip: Updates (discarded / newly added keys). Existing data will remain the same,
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: 18,
