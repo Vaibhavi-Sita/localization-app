@@ -36,6 +36,7 @@ components:
         spacing_below: small, italic: false, background: '', bold: true, underline: false}
       layout_properties: {grid_position: 'DPHPUF,OHNXOI'}
       name: oldData
+      data_bindings: []
   - type: ColumnPanel
     properties: {col_widths: '{"EZANMN":35,"OFMNJU":25}'}
     layout_properties: {grid_position: 'HLLJYM,RYIMHL'}
@@ -55,7 +56,6 @@ components:
         italic: false, background: '', bold: false, underline: false, icon: 'fa:info-circle'}
       name: button_2
       layout_properties: {grid_position: 'HEUVDI,OFMNJU'}
-      name: button_2
     - type: TextArea
       properties: {role: null, align: left, height: 229, tooltip: Enter the received translated .json here,
         placeholder: enter .json here, border: '', enabled: true, foreground: '',
