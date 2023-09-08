@@ -24,7 +24,7 @@ components:
       layout_properties: {grid_position: 'ICKYTC,JNHMRT', full_width_row: false}
     - type: Button
       properties: {role: null, align: right, tooltip: Untranslated/partially translated .json,
-        border: '', enabled: false, foreground: 'theme:Primary', visible: true, text: '',
+        border: '', enabled: true, foreground: 'theme:Primary', visible: true, text: '',
         font_size: 18, font: '', spacing_above: small, icon_align: right_edge, spacing_below: small,
         italic: false, background: '', bold: false, underline: false, icon: 'fa:info-circle'}
       name: button_1
@@ -50,9 +50,9 @@ components:
       layout_properties: {grid_position: 'HEUVDI,EZANMN'}
     - type: Button
       properties: {role: null, align: right, tooltip: Received/translated .json, border: '',
-        enabled: true, foreground: '', visible: true, text: '', font_size: 18, font: '',
-        spacing_above: small, icon_align: right_edge, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false, icon: 'fa:info-circle'}
+        enabled: true, foreground: 'theme:Primary', visible: true, text: '', font_size: 18,
+        font: '', spacing_above: small, icon_align: right_edge, spacing_below: small,
+        italic: false, background: '', bold: false, underline: false, icon: 'fa:info-circle'}
       name: button_2
       layout_properties: {grid_position: 'HEUVDI,OFMNJU'}
     - type: TextArea
