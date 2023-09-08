@@ -24,7 +24,7 @@ components:
       name: label_1
     - type: Button
       properties: {role: null, align: right, tooltip: Untranslated/partially translated .json,
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: 18,
+        border: '', enabled: false, foreground: '', visible: true, text: '', font_size: 18,
         font: '', spacing_above: small, icon_align: right_edge, spacing_below: small,
         italic: false, background: '', bold: false, underline: false, icon: 'fa:info-circle'}
       layout_properties: {grid_position: 'ICKYTC,JXZWXC', full_width_row: false}
