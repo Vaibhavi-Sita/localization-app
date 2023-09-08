@@ -16,14 +16,14 @@ components:
     layout_properties: {grid_position: 'HLLJYM,ZYQPXV'}
     components:
     - type: Label
-      properties: {role: null, align: left, tooltip: Enter the existing untranslated / partially translated .json under Old Data,
+      properties: {role: null, align: left, tooltip: Untranslated/partially translated .json,
         border: '', foreground: '', visible: true, text: Old Data (existing file),
         font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
         italic: false, background: '', bold: false, underline: false, icon: ''}
       name: label_1
       layout_properties: {grid_position: 'ICKYTC,JNHMRT', full_width_row: false}
     - type: Button
-      properties: {role: null, align: right, tooltip: Enter the existing untranslated / partially translated .json under Old Data,
+      properties: {role: null, align: right, tooltip: Untranslated/partially translated .json,
         border: '', enabled: true, foreground: '', visible: true, text: '', font_size: 18,
         font: '', spacing_above: small, icon_align: right_edge, spacing_below: small,
         italic: false, background: '', bold: false, underline: false, icon: 'fa:info-circle'}
@@ -42,17 +42,17 @@ components:
     layout_properties: {grid_position: 'HLLJYM,RYIMHL'}
     components:
     - type: Label
-      properties: {role: null, align: left, tooltip: Enter the received translated .json under Updated Data,
-        border: '', foreground: '', visible: true, text: Updated Data (received file),
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '', bold: false, underline: false, icon: ''}
+      properties: {role: null, align: left, tooltip: Received/translated .json, border: '',
+        foreground: '', visible: true, text: Updated Data (received file), font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
       name: updatedData
       layout_properties: {grid_position: 'HEUVDI,EZANMN'}
     - type: Button
-      properties: {role: null, align: right, tooltip: Enter the received translated .json under Updated Data,
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: 18,
-        font: '', spacing_above: small, icon_align: right_edge, spacing_below: small,
-        italic: false, background: '', bold: false, underline: false, icon: 'fa:info-circle'}
+      properties: {role: null, align: right, tooltip: Received/translated .json, border: '',
+        enabled: true, foreground: '', visible: true, text: '', font_size: 18, font: '',
+        spacing_above: small, icon_align: right_edge, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:info-circle'}
       name: button_2
       layout_properties: {grid_position: 'HEUVDI,OFMNJU'}
     - type: TextArea
