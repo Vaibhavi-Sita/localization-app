@@ -30,9 +30,15 @@ class Form1(Form1Template):
                   updated_data[key] = self.update_json_values(old_data[key], new_data[key])
               else:
                   updated_data[key] = old_data[key]
-          # for key in new_data:
-          #     if key not in old_data:
+          # Discarded keys       
+          for key in new_data:
+              if key not in old_data:
+                self.logs.text += "Discarded: " + new_data[key]
           #         updated_data[key] = new_data[key]
+          # Newly Added keys       
+          for key in old_data:
+              if key not in new_data:
+                self.logs.text += "Newly Added: " + old_data[key]
           return updated_data
       elif isinstance(old_data, list) and isinstance(new_data, list):
           updated_data = []
