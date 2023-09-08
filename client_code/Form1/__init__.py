@@ -11,6 +11,7 @@ class Form1(Form1Template):
     # Any code you write here will run before the form opens.
   def getData(self, **event_args):
     """This method is called when the submit button is clicked"""
+    self.logs.text = ""
     self.outputData.text = self.update_json(self.oldData, self.newData)    
     pass
 
@@ -33,12 +34,12 @@ class Form1(Form1Template):
           # Discarded keys       
           for key in new_data:
               if key not in old_data:
-                self.logs.text += "Discarded: " + key + ": " + new_data[key] + "\n"
+                self.logs.text += "DISCARDED: " + "\n" + key + ": " + new_data[key] + "\n"
           #         updated_data[key] = new_data[key]
           # Newly Added keys       
           for key in old_data:
               if key not in new_data:
-                self.logs.text += "Newly Added: " + key + ": " + old_data[key] + "\n"
+                self.logs.text += "NEWLY ADDED: " + "\n" + key + ": " + old_data[key] + "\n"
           return updated_data
       elif isinstance(old_data, list) and isinstance(new_data, list):
           updated_data = []
