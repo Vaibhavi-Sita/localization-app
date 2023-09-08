@@ -5,7 +5,7 @@ container:
 components:
 - type: ColumnPanel
   properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: large, spacing_above: small, col_widths: '{"JPKZON":35,"JAMGWB":25,"TPIYWH":12,"ZYQPXV":35,"RYIMHL":35,"MZAXQK":17,"APPHBI":23,"AJECUE":8}',
+    wrap_on: mobile, col_spacing: large, spacing_above: small, col_widths: '{"ZYQPXV":35,"RYIMHL":35,"APPHBI":23}',
     spacing_below: small, background: ''}
   layout_properties: {slot: default}
   name: column_panel_1
@@ -25,13 +25,13 @@ components:
     name: label_5
     layout_properties: {grid_position: 'YEANIL,AKSVTX'}
   - type: ColumnPanel
-    properties: {col_widths: '{"JNHMRT":25,"JXZWXC":35}'}
+    properties: {col_widths: '{"JNHMRT":35,"JXZWXC":25}'}
     layout_properties: {grid_position: 'HLLJYM,ZYQPXV'}
     name: column_panel_3
     components:
     - type: Label
       properties: {role: null, align: left, tooltip: Untranslated/partially translated .json,
-        border: '', foreground: '', visible: true, text: Old Data (existing file),
+        border: '', foreground: '', visible: true, text: Old Path (existing directory),
         font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
         italic: false, background: '', bold: false, underline: false, icon: ''}
       layout_properties: {grid_position: 'ICKYTC,JNHMRT', full_width_row: false}
@@ -44,17 +44,17 @@ components:
       layout_properties: {grid_position: 'ICKYTC,JXZWXC', full_width_row: false}
       name: button_1
   - type: ColumnPanel
-    properties: {col_widths: '{"EZANMN":35,"OFMNJU":25}'}
+    properties: {col_widths: '{"EZANMN":45,"OFMNJU":15}'}
     layout_properties: {grid_position: 'HLLJYM,RYIMHL'}
     name: column_panel_2
     components:
     - type: Label
       properties: {role: null, align: left, tooltip: Received/translated .json, border: '',
-        foreground: '', visible: true, text: Updated Data (received file), font_size: null,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false, icon: ''}
+        foreground: '', visible: true, text: Updated Path (received files directory),
+        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: '', bold: false, underline: false, icon: ''}
       layout_properties: {grid_position: 'HEUVDI,EZANMN'}
-      name: updatedData
+      name: new_dir
     - type: Button
       properties: {role: null, align: right, tooltip: Received/translated .json, border: '',
         enabled: true, foreground: 'theme:Primary', visible: true, text: '', font_size: 18,
@@ -62,29 +62,33 @@ components:
         italic: false, background: '', bold: false, underline: false, icon: 'fa:info-circle'}
       name: button_2
       layout_properties: {grid_position: 'HEUVDI,OFMNJU'}
-  - type: FileLoader
+  - type: TextBox
     properties: {}
-    name: file_loader_1
-    layout_properties: {grid_position: 'QNIFFC,HHVWWK'}
-  - type: FileLoader
+    name: old_dir
+    layout_properties: {grid_position: 'LCIDOQ,TTBLZR'}
+  - type: TextBox
     properties: {}
-    name: file_loader_2
-    layout_properties: {grid_position: 'QNIFFC,PZKNQF'}
-  - type: Button
-    properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: SUBMIT, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: medium, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    layout_properties: {grid_position: 'JZZUTK,RWFFCU'}
-    event_bindings: {click: getData}
-    name: submit
+    name: text_box_2
+    layout_properties: {grid_position: 'LCIDOQ,OMKIPR'}
   - type: Label
     properties: {role: null, align: left, tooltip: View your output .json here, border: '',
       foreground: '', visible: true, text: Output, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
-    layout_properties: {grid_position: 'MYNPEQ,TPIYWH', full_width_row: false}
+    layout_properties: {grid_position: 'URHSNT,HEKWZE', full_width_row: false}
     name: label_3
+  - type: TextBox
+    properties: {}
+    name: output_dir
+    layout_properties: {grid_position: 'HCEWRN,VEHEOW'}
+  - type: Button
+    properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: SUBMIT, font_size: null, font: '', spacing_above: medium,
+      icon_align: left, spacing_below: medium, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    layout_properties: {grid_position: 'VQILVO,XCGYMU'}
+    event_bindings: {click: getOutputDir}
+    name: submitDirs
   - type: Button
     properties: {role: null, align: right, tooltip: View your output .json here, border: '',
       enabled: true, foreground: '', visible: true, text: '', font_size: 18, font: '',
@@ -92,35 +96,6 @@ components:
       background: '', bold: false, underline: false, icon: 'fa:info-circle'}
     layout_properties: {grid_position: 'MYNPEQ,APPHBI', full_width_row: false}
     name: button_3
-  - type: Label
-    properties: {role: null, align: left, tooltip: Updates (discarded / newly added keys). Existing data will remain the same,
-      border: '', foreground: '', visible: true, text: Logs, font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false, icon: ''}
-    layout_properties: {grid_position: 'MYNPEQ,AJECUE', full_width_row: false}
-    name: label_4
-  - type: Button
-    properties: {role: null, align: right, tooltip: Updates (discarded / newly added keys). Existing data will remain the same,
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: 18,
-      font: '', spacing_above: small, icon_align: right_edge, spacing_below: small,
-      italic: false, background: '', bold: false, underline: false, icon: 'fa:info-circle'}
-    layout_properties: {grid_position: 'MYNPEQ,MZAXQK', full_width_row: false}
-    name: button_4
-  - type: TextArea
-    properties: {role: null, align: left, height: 247, tooltip: View your output .json here,
-      placeholder: output will be displayed here, border: '', enabled: false, foreground: '',
-      visible: true, text: '', font_size: null, auto_expand: false, font: '', spacing_above: small,
-      spacing_below: small, italic: false, background: '', bold: true, underline: false}
-    layout_properties: {grid_position: 'ETMSGL,JPKZON'}
-    name: outputData
-  - type: TextArea
-    properties: {role: null, align: left, height: 246, tooltip: discarded / newly added keys,
-      placeholder: logs are displayed here, border: '', enabled: false, foreground: 'theme:On
-        Primary', visible: true, text: '', font_size: null, auto_expand: false, font: '',
-      spacing_above: small, spacing_below: small, italic: false, background: 'theme:On
-        Tertiary Container', bold: true, underline: false}
-    layout_properties: {grid_position: 'ETMSGL,JAMGWB'}
-    name: logs
   - type: TextBox
     properties: {role: null, align: left, hide_text: false, tooltip: enter your output file name here,
       placeholder: output file name, border: '', enabled: true, foreground: '', visible: true,
@@ -156,6 +131,7 @@ components:
     layout_properties: {grid_position: 'QVYPSS,TZATOI'}
     name: spacer_4
 - type: ColumnPanel
-  properties: {}
+  properties: {col_widths: '{}'}
   name: column_panel_4
   layout_properties: {slot: left-nav}
+  components: []
