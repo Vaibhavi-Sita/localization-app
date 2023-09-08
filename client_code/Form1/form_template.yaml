@@ -99,10 +99,10 @@ components:
     name: button_4
     layout_properties: {grid_position: 'MYNPEQ,MZAXQK', full_width_row: false}
   - type: TextArea
-    properties: {role: null, align: left, height: 247, tooltip: '', placeholder: output will be displayed here,
-      border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
-      auto_expand: false, font: '', spacing_above: small, spacing_below: small, italic: false,
-      background: '', bold: true, underline: false}
+    properties: {role: null, align: left, height: 247, tooltip: View your output .json here,
+      placeholder: output will be displayed here, border: '', enabled: false, foreground: '',
+      visible: true, text: '', font_size: null, auto_expand: false, font: '', spacing_above: small,
+      spacing_below: small, italic: false, background: '', bold: true, underline: false}
     name: outputData
     layout_properties: {grid_position: 'ETMSGL,JPKZON'}
   - type: TextArea
