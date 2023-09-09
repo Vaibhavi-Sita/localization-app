@@ -3,6 +3,8 @@ Deployed App : https://localization.anvil.app/
 
 ## Usage:
 
+![image](https://github.com/Vaibhavi-Sita/localization-app/assets/52885102/e38d367a-048e-4e95-94ce-c08c0ce668c9)
+
 ### Old Data (existing file) 
 This is the existing .json in the application that needs to be localized
 It may contain the following types of key-value pairs:
@@ -19,4 +21,4 @@ It may contain the following types of key-value pairs:
 1. **Translated:** These are the key-value pairs that are translated into another language. These keys are compared against the existing file and the matching key's value (from received data) will be updated into the output. Example: Refer "title" and "para" keys from the screenshot.
 2. **Old values to be discarded:** These are the key-value pairs that were removed from the existing data after it was sent for translation. They are no longer needed. Such unnecessary data exists in the received targets and needs to be removed. The app will make sure that such data gets discarded in the output. Example: Refer "oldKeyToBeDiscarded" from the screenshot.
 
-![image](https://github.com/Vaibhavi-Sita/localization-app/assets/52885102/95b10637-e803-473c-8589-9eded6b75f1d)
+
