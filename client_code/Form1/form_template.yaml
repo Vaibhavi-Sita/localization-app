@@ -5,7 +5,7 @@ container:
 components:
 - type: ColumnPanel
   properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: large, spacing_above: small, col_widths: '{"JPKZON":35,"JAMGWB":25,"TPIYWH":12,"ZYQPXV":35,"RYIMHL":35,"MZAXQK":17,"APPHBI":23,"AJECUE":8,"MCVIPL":40,"AZDWPU":20}',
+    wrap_on: mobile, col_spacing: large, spacing_above: small, col_widths: '{"JPKZON":35,"JAMGWB":25,"TPIYWH":12,"ZYQPXV":35,"RYIMHL":35,"MZAXQK":17,"APPHBI":23,"AJECUE":8,"MCVIPL":30,"AZDWPU":25,"EOWJNK":25}',
     spacing_below: small, background: ''}
   layout_properties: {slot: default}
   name: column_panel_1
@@ -14,6 +14,14 @@ components:
     properties: {height: 32}
     name: spacer_3
     layout_properties: {grid_position: 'LWKEST,MCVIPL'}
+  - type: Button
+    properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: LIVE TRANSLATE, font_size: 10, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
+    name: button_5
+    layout_properties: {grid_position: 'LWKEST,EOWJNK'}
+    event_bindings: {click: button_5_click}
   - type: Button
     properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
       foreground: '', visible: true, text: SWITCH TO DIRECTORY MODE, font_size: 10,

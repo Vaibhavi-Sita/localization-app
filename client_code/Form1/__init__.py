@@ -58,4 +58,9 @@ class Form1(Form1Template):
       self.outputFileName.text = "output"
     updatedJsonFile = anvil.BlobMedia(content_type="text/plain", content=self.outputData.text.encode(), name=self.outputFileName.text+".json")
     anvil.media.download(updatedJsonFile) 
+
+  def button_5_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
   
