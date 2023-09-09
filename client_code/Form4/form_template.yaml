@@ -15,6 +15,7 @@ components:
       background: 'theme:Primary', bold: false, underline: false, icon: ''}
     name: button_6
     layout_properties: {grid_position: 'JDOZRG,MGZQNL', full_width_row: false}
+    event_bindings: {click: goToForm1}
   - type: Label
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
       visible: true, text: LIVE TRANSLATE, font_size: 18, font: '', spacing_above: small,
