@@ -49,7 +49,7 @@ class Form4(Form4Template):
     payload = {
     	"source_language": sourceLanguage,
     	"target_language": targetLanguage,
-    	"text": "What is your name?"
+    	"text": oldDataValue
     }
     # headers = {
     # 	"content-type": "application/x-www-form-urlencoded",
@@ -67,8 +67,21 @@ class Form4(Form4Template):
     response = anvil.http.request(url=url,
                     method="POST",
                     data=payload,
-                    headers= headers, json=True)
+                    headers= headers)
+    # response = anvil.BlobMedia("application/json", json.dumps(response))
+    print(response)
+    # anvil.BlobMedia().get_bytes()
+    # return response.get_bytes().decode("utf-8")
+    res = response.get_bytes().decode("utf-8")
+    res = json.loads(res)
+    # for key in res:
+    #     for keyy in key:
+    #         return res[key[keyy]]
+
+    # return res['data'['translatedText']]
+    return res['data']['translatedText']
     
-    return response.json()
+
+
 
 
