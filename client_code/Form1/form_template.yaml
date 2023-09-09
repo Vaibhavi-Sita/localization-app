@@ -52,7 +52,7 @@ components:
       properties: {role: null, align: left, height: 230, tooltip: Enter the existing untranslated / partially translated .json here,
         placeholder: enter .json here, border: '', enabled: true, foreground: '',
         visible: true, text: '', font_size: null, auto_expand: false, font: '', spacing_above: small,
-        spacing_below: small, italic: false, background: '', bold: true, underline: false}
+        spacing_below: small, italic: false, background: '', bold: false, underline: false}
       layout_properties: {grid_position: 'DPHPUF,OHNXOI'}
       name: oldData
       data_bindings: []
@@ -79,7 +79,7 @@ components:
       properties: {role: null, align: left, height: 229, tooltip: Enter the received translated .json here,
         placeholder: enter .json here, border: '', enabled: true, foreground: '',
         visible: true, text: '', font_size: null, auto_expand: false, font: '', spacing_above: small,
-        spacing_below: small, italic: false, background: '', bold: true, underline: false}
+        spacing_below: small, italic: false, background: '', bold: false, underline: false}
       layout_properties: {grid_position: 'GMGHYH,VKQMQU'}
       name: newData
   - type: Button
