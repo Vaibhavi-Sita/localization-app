@@ -18,34 +18,15 @@ class Form4(Form4Template):
 
   def update_json(self, old_data):
     old_data = json.loads(old_data.text)
-    currentLanguage  = self.currentLanguage.text
-    translationLanguage = self.translationLanguage.text
+    sourceLanguage  = self.sourceLanguage.text
+    targetLanguage = self.targetLanguage.text
     if isinstance(old_data, dict):
       updated_data = {}
       for key in old_data:
-        # updated_data[key] = self.getTranslatedData(old_data[key], currentLanguage, translationLanguage)
-        updated_data[key] = self.requestsData(old_data[key], currentLanguage, translationLanguage)
+        # updated_data[key] = self.getTranslatedData(old_data[key], sourceLanguage, targetLanguage)
+        updated_data[key] = self.requestsData(old_data[key], sourceLanguage, targetLanguage)
         
     return json.dumps(updated_data, indent=4)
-
-  def getTranslatedData(self, oldDataValue, currentLanguage, translationLanguage):
-    conn = http.client.HTTPSConnection("google-translate1.p.rapidapi.com")
-    #payload = "q=Hello%2C%20world!&target=es&source=en"
-    payload = "q=" + oldDataValue.encode("utf-8") + "&target=" + translationLanguage + "&source=" +currentLanguage
-    
-    headers = {
-        'content-type': "application/x-www-form-urlencoded",
-        'Accept-Encoding': "application/gzip",
-        'X-RapidAPI-Key': "d4faedeecamsha6e48bd17aecf54p1ad727jsn89f4ce00e486",
-        'X-RapidAPI-Host': "google-translate1.p.rapidapi.com"
-    }
-    
-    conn.request("POST", "/language/translate/v2", payload, headers)
-    
-    res = conn.getresponse()
-    data = res.read()
-    
-    return data.decode("utf-8")
 
   def downloadData(self, **event_args):
     """This method is called when the downlaod button is clicked"""
@@ -55,21 +36,32 @@ class Form4(Form4Template):
     updatedJsonFile = anvil.BlobMedia(content_type="text/plain", content=self.outputData.text.encode(), name=self.outputFileName.text+".json")
     anvil.media.download(updatedJsonFile)
 
-  def requestsData(self, oldDataValue, currentLanguage, translationLanguage):
-    url = "https://google-translate1.p.rapidapi.com/language/translate/v2"
+  def requestsData(self, oldDataValue, sourceLanguage, targetLanguage):
+    # url = "https://google-translate1.p.rapidapi.com/language/translate/v2"
+    url = "https://text-translator2.p.rapidapi.com/translate"
+
+    # payload = {
+    # 	"q": oldDataValue,
+    # 	"target": targetLanguage,
+    # 	"source": sourceLanguage
+    # }
 
     payload = {
-    	"q": oldDataValue,
-    	"target": translationLanguage,
-    	"source": currentLanguage
+    	"source_language": sourceLanguage,
+    	"target_language": targetLanguage,
+    	"text": "What is your name?"
     }
+    # headers = {
+    # 	"content-type": "application/x-www-form-urlencoded",
+    # 	"Accept-Encoding": "application/gzip",
+    # 	"X-RapidAPI-Key": "d4faedeecamsha6e48bd17aecf54p1ad727jsn89f4ce00e486",
+    # 	"X-RapidAPI-Host": "google-translate1.p.rapidapi.com"
+    # }
     headers = {
     	"content-type": "application/x-www-form-urlencoded",
-    	"Accept-Encoding": "application/gzip",
     	"X-RapidAPI-Key": "d4faedeecamsha6e48bd17aecf54p1ad727jsn89f4ce00e486",
-    	"X-RapidAPI-Host": "google-translate1.p.rapidapi.com"
+    	"X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
     }
-    
     # response = requests.post(url, data=payload, headers=headers)
 
     response = anvil.http.request(url=url,
