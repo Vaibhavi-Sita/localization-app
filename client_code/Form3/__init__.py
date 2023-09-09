@@ -17,35 +17,34 @@ class Form3(Form3Template):
     pass
 
   def update_json(self, old_data):
-
     old_data = json.loads(old_data.text)
-    updated_data = self.update_json_values(old_data)
-    return json.dumps(updated_data, indent=4)
-
-  def update_json_values(self, old_data):
+    currentLanguage  = self.currentLanguage.text
+    translationLanguage = self.translationLanguage.text
     if isinstance(old_data, dict):
       updated_data = {}
       for key in old_data:
-        updated_data[key] = self.update_json_values(old_data[key])
-      return updated_data
+        updated_data[key] = self.getTranslatedData(old_data[key], currentLanguage, translationLanguage)
+        
+    return json.dumps(updated_data, indent=4)
 
-  conn = http.client.HTTPSConnection("google-translate1.p.rapidapi.com")
-  
-  payload = "q=English%20is%20hard%2C%20but%20detectably%20so"
-  
-  headers = {
-      'content-type': "application/x-www-form-urlencoded",
-      'Accept-Encoding': "application/gzip",
-      'X-RapidAPI-Key': "d4faedeecamsha6e48bd17aecf54p1ad727jsn89f4ce00e486",
-      'X-RapidAPI-Host': "google-translate1.p.rapidapi.com"
-  }
-  
-  conn.request("POST", "/language/translate/v2/detect", payload, headers)
-  
-  res = conn.getresponse()
-  data = res.read()
-  
-  print(data.decode("utf-8"))
+  def getTranslatedData(self, oldDataValue, currentLanguage, translationLanguage):
+    conn = http.client.HTTPSConnection("google-translate1.p.rapidapi.com")
+    #payload = "q=Hello%2C%20world!&target=es&source=en"
+    payload = "q=" + oldDataValue.encode("utf-8") + "&target=" + translationLanguage + "&source=" +currentLanguage
+    
+    headers = {
+        'content-type': "application/x-www-form-urlencoded",
+        'Accept-Encoding': "application/gzip",
+        'X-RapidAPI-Key': "d4faedeecamsha6e48bd17aecf54p1ad727jsn89f4ce00e486",
+        'X-RapidAPI-Host': "google-translate1.p.rapidapi.com"
+    }
+    
+    conn.request("POST", "/language/translate/v2", payload, headers)
+    
+    res = conn.getresponse()
+    data = res.read()
+    
+    return data.decode("utf-8")
 
   def downloadData(self, **event_args):
     """This method is called when the downlaod button is clicked"""
