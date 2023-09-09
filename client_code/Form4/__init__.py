@@ -37,49 +37,30 @@ class Form4(Form4Template):
     anvil.media.download(updatedJsonFile)
 
   def requestsData(self, oldDataValue, sourceLanguage, targetLanguage):
-    # url = "https://google-translate1.p.rapidapi.com/language/translate/v2"
     url = "https://text-translator2.p.rapidapi.com/translate"
-
-    # payload = {
-    # 	"q": oldDataValue,
-    # 	"target": targetLanguage,
-    # 	"source": sourceLanguage
-    # }
 
     payload = {
     	"source_language": sourceLanguage,
     	"target_language": targetLanguage,
     	"text": oldDataValue
     }
-    # headers = {
-    # 	"content-type": "application/x-www-form-urlencoded",
-    # 	"Accept-Encoding": "application/gzip",
-    # 	"X-RapidAPI-Key": "d4faedeecamsha6e48bd17aecf54p1ad727jsn89f4ce00e486",
-    # 	"X-RapidAPI-Host": "google-translate1.p.rapidapi.com"
-    # }
+
     headers = {
     	"content-type": "application/x-www-form-urlencoded",
     	"X-RapidAPI-Key": "d4faedeecamsha6e48bd17aecf54p1ad727jsn89f4ce00e486",
     	"X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
     }
-    # response = requests.post(url, data=payload, headers=headers)
-
+  
     response = anvil.http.request(url=url,
                     method="POST",
                     data=payload,
                     headers= headers)
-    # response = anvil.BlobMedia("application/json", json.dumps(response))
-    print(response)
-    # anvil.BlobMedia().get_bytes()
-    # return response.get_bytes().decode("utf-8")
+
     res = response.get_bytes().decode("utf-8")
     res = json.loads(res)
-    # for key in res:
-    #     for keyy in key:
-    #         return res[key[keyy]]
-
-    # return res['data'['translatedText']]
     return res['data']['translatedText']
+
+  
     
 
 
