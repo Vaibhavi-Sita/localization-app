@@ -3,9 +3,9 @@ Deployed App : https://localization.anvil.app/
 
 ## Usage:
 
-![Untitled](Localize%20json%20ff8d1df5152c4308ad9e4281f1202e27/Untitled.png)
+<img src="https://github.com/Vaibhavi-Sita/localization-app/blob/2892f68f96b4bfafe91a65a13e3ef8a5077ca675/theme/assets/SS3.jpg" width="500">
+<img src="https://github.com/Vaibhavi-Sita/localization-app/blob/2892f68f96b4bfafe91a65a13e3ef8a5077ca675/theme/assets/SS1.png" width="500">
 
-![Untitled](Localize%20json%20ff8d1df5152c4308ad9e4281f1202e27/Untitled%201.png)
 
 ### Modes:
 
