@@ -60,8 +60,6 @@ class Form4(Form4Template):
     res = json.loads(res)
     return res['data']['translatedText']
 
-  def goToForm1(self, **event_args):
-    open_form('Form1')
     
 
 
