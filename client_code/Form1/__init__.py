@@ -1,7 +1,9 @@
 from ._anvil_designer import Form1Template
 from anvil import *
+import anvil.server
 import anvil.media
 import json
+
 
 class Form1(Form1Template):
   def __init__(self, **properties):
@@ -59,8 +61,7 @@ class Form1(Form1Template):
     updatedJsonFile = anvil.BlobMedia(content_type="text/plain", content=self.outputData.text.encode(), name=self.outputFileName.text+".json")
     anvil.media.download(updatedJsonFile) 
 
-  def button_5_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+  def goToForm4(self, **event_args):
+    open_form('Form4')
 
   

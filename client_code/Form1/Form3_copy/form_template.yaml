@@ -1,0 +1,164 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: large, spacing_above: small, col_widths: '{"ZYQPXV":30,"RYIMHL":30,"APPHBI":23}',
+    spacing_below: small, background: ''}
+  layout_properties: {slot: default}
+  name: column_panel_1
+  components:
+  - type: Button
+    properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: SWITCH TO FILE MODE, font_size: 10, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
+    name: button_6
+    layout_properties: {grid_position: 'ZSTGLY,AKCHGO'}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: LIVE TRANSLATE, font_size: 18, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_5
+    layout_properties: {grid_position: 'YEANIL,AKSVTX'}
+  - type: ColumnPanel
+    properties: {col_widths: '{"JNHMRT":35,"JXZWXC":25}'}
+    layout_properties: {grid_position: 'HLLJYM,ZYQPXV'}
+    name: column_panel_3
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: Untranslated/partially translated .json,
+        border: '', foreground: '', visible: true, text: Enter .json, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      layout_properties: {grid_position: 'ICKYTC,JNHMRT', full_width_row: false}
+      name: label_1
+    - type: Button
+      properties: {role: null, align: right, tooltip: Untranslated .json, border: '',
+        enabled: true, foreground: 'theme:Primary', visible: true, text: '', font_size: 18,
+        font: '', spacing_above: small, icon_align: right_edge, spacing_below: small,
+        italic: false, background: '', bold: false, underline: false, icon: 'fa:info-circle'}
+      layout_properties: {grid_position: 'ICKYTC,JXZWXC', full_width_row: false}
+      name: button_1
+  - type: ColumnPanel
+    properties: {col_widths: '{"EZANMN":45,"OFMNJU":15}'}
+    layout_properties: {grid_position: 'HLLJYM,RYIMHL'}
+    name: column_panel_2
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: Received/translated .json, border: '',
+        foreground: '', visible: true, text: Current Language Code, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      layout_properties: {grid_position: 'HEUVDI,EZANMN'}
+      name: new_dir
+    - type: Button
+      properties: {role: null, align: right, tooltip: 'Example: "en" for "English"',
+        border: '', enabled: true, foreground: 'theme:Primary', visible: true, text: '',
+        font_size: 18, font: '', spacing_above: small, icon_align: right_edge, spacing_below: small,
+        italic: false, background: '', bold: false, underline: false, icon: 'fa:info-circle'}
+      name: button_2
+      layout_properties: {grid_position: 'HEUVDI,OFMNJU'}
+  - type: TextArea
+    properties: {height: 121}
+    name: text_area_1
+    layout_properties: {grid_position: 'LCIDOQ,KEYWOL'}
+  - type: TextBox
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Enter current language code,
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    name: currentLanguage
+    layout_properties: {grid_position: 'LCIDOQ,OMKIPR WIDSIZ,ZVVPGU'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Translation Language Code, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_4
+    layout_properties: {grid_position: 'LCIDOQ,OMKIPR KKVUGR,WAOIXB'}
+  - type: Button
+    properties: {role: null, align: right, tooltip: 'Example: "de" for "German"',
+      border: '', enabled: true, foreground: 'theme:Primary', visible: true, text: '',
+      font_size: 18, font: '', spacing_above: small, icon_align: right_edge, spacing_below: small,
+      italic: false, background: '', bold: false, underline: false, icon: 'fa:info-circle'}
+    name: button_4
+    layout_properties: {grid_position: 'LCIDOQ,OMKIPR KKVUGR,MCINGV'}
+  - type: TextBox
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Enter language code to be translated in,
+      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false}
+    name: translationLanguage
+    layout_properties: {grid_position: 'LCIDOQ,OMKIPR BBVZTH,QXMYHY'}
+  - type: Button
+    properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: SUBMIT, font_size: null, font: '', spacing_above: medium,
+      icon_align: left, spacing_below: medium, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    layout_properties: {grid_position: 'VQILVO,XCGYMU'}
+    event_bindings: {click: getOutputDir}
+    name: submitDirs
+  - type: Label
+    properties: {role: null, align: left, tooltip: View your output .json here, border: '',
+      foreground: '', visible: true, text: Output, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    layout_properties: {grid_position: 'MYNPEQ,SSTWQU', full_width_row: false}
+    name: label_3
+  - type: Button
+    properties: {role: null, align: right, tooltip: View your output .json here, border: '',
+      enabled: true, foreground: '', visible: true, text: '', font_size: 18, font: '',
+      spacing_above: small, icon_align: right_edge, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: 'fa:info-circle'}
+    layout_properties: {grid_position: 'MYNPEQ,APPHBI', full_width_row: false}
+    name: outputInfo
+  - type: TextArea
+    properties: {height: 207.99999809265137}
+    name: text_area_2
+    layout_properties: {grid_position: 'HQQGCA,WPHUSY'}
+  - type: TextBox
+    properties: {role: null, align: left, hide_text: false, tooltip: enter your output file name here,
+      placeholder: output file name, border: '', enabled: true, foreground: '', visible: true,
+      text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
+      italic: false, background: '', bold: false, underline: false}
+    layout_properties: {grid_position: 'XDFUET,OTLDSD', full_width_row: false}
+    name: outputFileName
+  - type: Label
+    properties: {role: null, align: left, tooltip: enter your output file name here,
+      border: '', foreground: '', visible: true, text: .json, font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
+    layout_properties: {grid_position: 'XDFUET,ZYQXLZ', full_width_row: false}
+    name: label_2
+  - type: Button
+    properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Download, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    layout_properties: {grid_position: 'XDFUET,RBKNWT'}
+    event_bindings: {click: downloadData}
+    name: download
+  - type: Spacer
+    properties: {height: 32}
+    layout_properties: {grid_position: 'XDFUET,KETLXE', full_width_row: false}
+    name: spacer_2
+  - type: Spacer
+    properties: {height: 32}
+    layout_properties: {grid_position: 'XDFUET,UMDIHX', full_width_row: false}
+    name: spacer_1
+  - type: Spacer
+    properties: {height: 32}
+    layout_properties: {grid_position: 'QVYPSS,TZATOI'}
+    name: spacer_4
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: column_panel_4
+  layout_properties: {slot: left-nav}
+  components: []
+custom_component: false
+properties:
+- {name: prop, type: string, default_value: '', default_binding_prop: true}

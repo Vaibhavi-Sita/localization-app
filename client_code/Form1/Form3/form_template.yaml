@@ -50,17 +50,16 @@ components:
     components:
     - type: Label
       properties: {role: null, align: left, tooltip: Received/translated .json, border: '',
-        foreground: '', visible: true, text: Current language, font_size: null, font: '',
-        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        foreground: '', visible: true, text: Current Language Code, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '', bold: false, underline: false, icon: ''}
       layout_properties: {grid_position: 'HEUVDI,EZANMN'}
       name: new_dir
     - type: Button
-      properties: {role: null, align: right, tooltip: 'Enter current language (Example:
-          English))', border: '', enabled: true, foreground: 'theme:Primary', visible: true,
-        text: '', font_size: 18, font: '', spacing_above: small, icon_align: right_edge,
-        spacing_below: small, italic: false, background: '', bold: false, underline: false,
-        icon: 'fa:info-circle'}
+      properties: {role: null, align: right, tooltip: 'Example: "en" for "English"',
+        border: '', enabled: true, foreground: 'theme:Primary', visible: true, text: '',
+        font_size: 18, font: '', spacing_above: small, icon_align: right_edge, spacing_below: small,
+        italic: false, background: '', bold: false, underline: false, icon: 'fa:info-circle'}
       name: button_2
       layout_properties: {grid_position: 'HEUVDI,OFMNJU'}
   - type: TextArea
@@ -68,7 +67,7 @@ components:
     name: text_area_1
     layout_properties: {grid_position: 'LCIDOQ,KEYWOL'}
   - type: TextBox
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Enter current language,
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Enter current language code,
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
       font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
       background: '', bold: false, underline: false}
@@ -76,21 +75,20 @@ components:
     layout_properties: {grid_position: 'LCIDOQ,OMKIPR WIDSIZ,ZVVPGU'}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Translation Language, font_size: null, font: '', spacing_above: small,
+      visible: true, text: Translation Language Code, font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     name: label_4
     layout_properties: {grid_position: 'LCIDOQ,OMKIPR KKVUGR,WAOIXB'}
   - type: Button
-    properties: {role: null, align: right, tooltip: 'Enter language to be translated
-        in. (Example: German)', border: '', enabled: true, foreground: 'theme:Primary',
-      visible: true, text: '', font_size: 18, font: '', spacing_above: small, icon_align: right_edge,
-      spacing_below: small, italic: false, background: '', bold: false, underline: false,
-      icon: 'fa:info-circle'}
+    properties: {role: null, align: right, tooltip: 'Example: "de" for "German"',
+      border: '', enabled: true, foreground: 'theme:Primary', visible: true, text: '',
+      font_size: 18, font: '', spacing_above: small, icon_align: right_edge, spacing_below: small,
+      italic: false, background: '', bold: false, underline: false, icon: 'fa:info-circle'}
     name: button_4
     layout_properties: {grid_position: 'LCIDOQ,OMKIPR KKVUGR,MCINGV'}
   - type: TextBox
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Enter language to be translated in,
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Enter language code to be translated in,
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
       font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
       background: '', bold: false, underline: false}
@@ -161,3 +159,6 @@ components:
   name: column_panel_4
   layout_properties: {slot: left-nav}
   components: []
+custom_component: false
+properties:
+- {name: prop, type: string, default_value: '', default_binding_prop: true}

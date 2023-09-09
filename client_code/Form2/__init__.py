@@ -1,5 +1,6 @@
 from ._anvil_designer import Form2Template
 from anvil import *
+import anvil.server
 import anvil.media
 import json
 import shutil
