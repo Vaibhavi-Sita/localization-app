@@ -10,9 +10,9 @@ components:
   components:
   - type: Button
     properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: SWITCH TO FILE MODE, font_size: 10, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false, icon: ''}
+      foreground: 'theme:On Primary', visible: true, text: SWITCH TO FILE MODE, font_size: 12,
+      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: 'theme:Primary', bold: false, underline: false, icon: ''}
     name: button_6
     layout_properties: {grid_position: 'JDOZRG,MGZQNL', full_width_row: false}
   - type: Label
@@ -58,10 +58,11 @@ components:
     name: oldData
     layout_properties: {grid_position: 'BGMSAG,PRBHPI'}
   - type: TextBox
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Enter source language code,
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: 'Enter
+        source language code (Example: "en" for English)', border: '', enabled: true,
+      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+      type: text, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false}
     name: sourceLanguage
     layout_properties: {grid_position: 'BGMSAG,AILNOF FZMIKF,GIKZNT'}
   - type: Label
@@ -79,10 +80,11 @@ components:
     name: button_4
     layout_properties: {grid_position: 'BGMSAG,AILNOF VUMSTC,YEDIGQ'}
   - type: TextBox
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Enter language code to be translated in,
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: 'Enter
+        target language code (Example: "de" for German)', border: '', enabled: true,
+      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+      type: text, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false}
     name: targetLanguage
     layout_properties: {grid_position: 'BGMSAG,AILNOF IHQOIJ,GABKXP'}
   - type: Button
@@ -141,3 +143,4 @@ components:
       underline: false, icon: ''}
     layout_properties: {grid_position: 'QUXNVI,SPYFBA'}
     name: download
+    event_bindings: {click: downloadData}
