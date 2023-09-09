@@ -18,14 +18,14 @@ class Form1(Form1Template):
     pass
 
   def update_json(self, old_data, new_data):
-    
     old_data = json.loads(old_data.text)
     new_data = json.loads(new_data.text)
+    
     updated_data = self.update_json_values(old_data, new_data)
+    self.checkLogs(old_data,new_data)
     return json.dumps(updated_data, indent=4)
 
   def update_json_values(self, old_data, new_data):
-      
       if isinstance(old_data, dict) and isinstance(new_data, dict):
           updated_data = {}
           for key in old_data:
@@ -33,15 +33,6 @@ class Form1(Form1Template):
                   updated_data[key] = self.update_json_values(old_data[key], new_data[key])
               else:
                   updated_data[key] = old_data[key]
-          # Discarded keys       
-          for key in new_data:
-              if key not in old_data:
-                self.logs.text += "DISCARDED: " + "\n" + key + ": " + new_data[key] + "\n" + "\n"
-          #         updated_data[key] = new_data[key]
-          # Newly Added keys       
-          for key in old_data:
-              if key not in new_data:
-                self.logs.text += "NEWLY ADDED: " + "\n" + key + ": " + old_data[key] + "\n" + "\n"
           return updated_data
       elif isinstance(old_data, list) and isinstance(new_data, list):
           updated_data = []
@@ -52,6 +43,26 @@ class Form1(Form1Template):
           return updated_data
       else:
           return new_data
+
+  def checkLogs(self, old_data, new_data):
+      discarded = {}
+      newlyAdded = {}
+      # Discarded keys       
+      for key in new_data:
+          if key not in old_data:
+            # self.logs.text += "DISCARDED: " + "\n" + key + ": " + new_data[key] + "\n" + "\n"
+            discarded[key] = new_data[key]
+      #         updated_data[key] = new_data[key]
+      # Newly Added keys       
+      for key in old_data:
+          if key not in new_data:
+            # self.logs.text += "NEWLY ADDED: " + "\n" + key + ": " + old_data[key] + "\n" + "\n"
+            newlyAdded[key] = old_data[key]
+
+      self.logs.text += "\n NEWLY ADDED VALUES: " + "\n"
+      self.logs.text += json.dumps(newlyAdded, indent=4)
+      self.logs.text += "\n DISCARDED VALUES: " + "\n"
+      self.logs.text += json.dumps(discarded, indent=4)
 
   def downloadData(self, **event_args):
     """This method is called when the downlaod button is clicked"""
