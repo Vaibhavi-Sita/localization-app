@@ -13,20 +13,26 @@ class Form4(Form4Template):
     # Any code you write here will run before the form opens.
   def getData(self, **event_args):
     """This method is called when the submit button is clicked"""
-    self.outputData.text = self.update_json(self.oldData)
-    pass
-
-  def update_json(self, old_data):
-    old_data = json.loads(old_data.text)
+    updated_data = {}
     sourceLanguage  = self.sourceLanguage.text
     targetLanguage = self.targetLanguage.text
+    self.outputData.text = json.dumps(self.update_json(json.loads(self.oldData.text), updated_data, sourceLanguage, targetLanguage), indent=4)
+    pass
+
+  def update_json(self, old_data, updated_data, sourceLanguage,targetLanguage):
+    # old_data = json.loads(old_data.text)
+    if isinstance(old_data, str):
+      return self.requestsData(old_data, sourceLanguage, targetLanguage)
+      
     if isinstance(old_data, dict):
-      updated_data = {}
-      for key in old_data:
+      # for key in old_data:
         # updated_data[key] = self.getTranslatedData(old_data[key], sourceLanguage, targetLanguage)
-        updated_data[key] = self.requestsData(old_data[key], sourceLanguage, targetLanguage)
-        
-    return json.dumps(updated_data, indent=4)
+      updated_data = {key: self.update_json(value, updated_data, sourceLanguage, targetLanguage) for key, value in old_data.items()}
+      
+    # else:
+    #   return old_dataw
+    # return json.dumps(updated_data, indent=4)
+    return updated_data
 
   def downloadData(self, **event_args):
     """This method is called when the downlaod button is clicked"""
