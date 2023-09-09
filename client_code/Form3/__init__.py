@@ -2,7 +2,7 @@ from ._anvil_designer import Form3Template
 from anvil import *
 import anvil.media
 import json
-import shutil
+import http.client
 
 class Form3(Form3Template):
   def __init__(self, **properties):
@@ -26,8 +26,26 @@ class Form3(Form3Template):
     if isinstance(old_data, dict):
       updated_data = {}
       for key in old_data:
-        updated_data[key] = self.update_json_values(old_data[key], new_data[key])
+        updated_data[key] = self.update_json_values(old_data[key])
       return updated_data
+
+  conn = http.client.HTTPSConnection("google-translate1.p.rapidapi.com")
+  
+  payload = "q=English%20is%20hard%2C%20but%20detectably%20so"
+  
+  headers = {
+      'content-type': "application/x-www-form-urlencoded",
+      'Accept-Encoding': "application/gzip",
+      'X-RapidAPI-Key': "d4faedeecamsha6e48bd17aecf54p1ad727jsn89f4ce00e486",
+      'X-RapidAPI-Host': "google-translate1.p.rapidapi.com"
+  }
+  
+  conn.request("POST", "/language/translate/v2/detect", payload, headers)
+  
+  res = conn.getresponse()
+  data = res.read()
+  
+  print(data.decode("utf-8"))
 
   def downloadData(self, **event_args):
     """This method is called when the downlaod button is clicked"""
