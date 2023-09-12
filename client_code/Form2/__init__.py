@@ -1,5 +1,8 @@
 from ._anvil_designer import Form2Template
 from anvil import *
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
 import anvil.server
 import anvil.media
 import json
@@ -11,10 +14,49 @@ class Form2(Form2Template):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+   
+  def getFiles(self):
+    # self.process_directory(self.oldFiles, self.newFiles, self.outputFiles)
+    self.process_directory(self.oldFilesUpload, self.newFilesUpload, self.output_dir)
+    pass
+
+  def process_directory(self, oldFilesUpload, newFilesUpload, output_dir):
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # List all files in the old and new directory
+
+    for old_file, new_file in oldFilesUpload.files, newFileUpload.files:
+        # Check if the file exists in the new directory
+        if old_file.name == new_file.name:
+          old_json = json.load(old_file)
+          new_json = json.load(new_file)
+          
+          updated_json = update_json(old_json, new_json)
+
+    return json.dump(updated_json, output_file, indent=4)
+
+          # Write the updated JSON to the output directory
+          # output_file_path = os.path.join(output_dir, old_file_name)
+          # with open(output_file_path, 'w') as output_file:
+          #     json.dump(updated_json, output_file, indent=4)
+
+  def create_zip(self, output_dir, zip_filename):
+    shutil.make_archive(zip_filename, 'zip', output_dir)
+    self.downloadZip()
+    
+  def downloadZip(self, **event_args):
+    """This method is called when the downlaod button is clicked"""
+    # BlobMedia("text/plain", self.outputData, [name=output])
+    # if(self.outputFileName.text == ""):
+    #   self.outputFileName.text = "output"
+    outputFiles = anvil.BlobMedia(content_type="application/zip", content=self.output_dir, name="Output Files")
+    anvil.media.download(outputFiles)  
+  
   def getData(self, **event_args):
     """This method is called when the submit button is clicked"""
     self.logs.text = ""
     self.outputData.text = self.update_json(self.oldData, self.newData)
+    # self.outputData.text = (self.old_dir, self.new_dir)
     pass
 
   def update_json(self, old_data, new_data):
@@ -61,43 +103,7 @@ class Form2(Form2Template):
     updatedJsonFile = anvil.BlobMedia(content_type="text/plain", content=self.outputData.text.encode(), name=self.outputFileName.text+".json")
     anvil.media.download(updatedJsonFile)
 
-  def getFiles(self):
-    self.process_directory(self.oldFiles, self.newFiles, self.outputFiles)
-    pass
-
-  def process_directory(self, old_dir, new_dir, output_dir):
-    os.makedirs(output_dir, exist_ok=True)
-    
-    # List all files in the old directory
-    old_files = os.listdir(old_dir)
-    
-    for old_file_name in old_files:
-        # Check if the file exists in the new directory
-        new_file_path = os.path.join(new_dir, old_file_name)
-        if os.path.isfile(new_file_path):
-            with open(os.path.join(old_dir, old_file_name), 'r') as old_file, \
-                 open(new_file_path, 'r') as new_file:
-                old_json = json.load(old_file)
-                new_json = json.load(new_file)
-                
-                updated_json = update_json(old_json, new_json)
-                
-                # Write the updated JSON to the output directory
-                output_file_path = os.path.join(output_dir, old_file_name)
-                with open(output_file_path, 'w') as output_file:
-                    json.dump(updated_json, output_file, indent=4)
-
-  def create_zip(self, output_dir, zip_filename):
-    shutil.make_archive(zip_filename, 'zip', output_dir)
-    self.downloadZip()
-    
-  def downloadZip(self, **event_args):
-    """This method is called when the downlaod button is clicked"""
-    # BlobMedia("text/plain", self.outputData, [name=output])
-    # if(self.outputFileName.text == ""):
-    #   self.outputFileName.text = "output"
-    outputFiles = anvil.BlobMedia(content_type="application/zip", content=self.output_dir, name="Output Files")
-    anvil.media.download(outputFiles)  
+ 
     
   # def process_directory(self, old_files, new_files, output_files):
   #   # os.makedirs(output_dir, exist_ok=True)

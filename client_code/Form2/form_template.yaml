@@ -12,9 +12,9 @@ components:
   components:
   - type: Button
     properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: SWITCH TO FILE MODE, font_size: 10, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false, icon: ''}
+      foreground: 'theme:On Primary', visible: true, text: SWITCH TO FILE MODE, font_size: 14,
+      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: 'theme:On Primary Container', bold: false, underline: false, icon: ''}
     name: button_6
     layout_properties: {grid_position: 'ZSTGLY,AKCHGO'}
   - type: Label
@@ -65,11 +65,65 @@ components:
   - type: TextBox
     properties: {}
     name: old_dir
-    layout_properties: {grid_position: 'LCIDOQ,TTBLZR'}
+    layout_properties: {grid_position: 'LCIDOQ,TTBLZR GSLJZG,NUACEX'}
+  - type: FileLoader
+    properties:
+      role: null
+      show_state: true
+      align: center
+      tooltip: ''
+      border: ''
+      file_types: .json
+      enabled: true
+      files: []
+      foreground: ''
+      visible: true
+      text: Upload
+      font_size: null
+      font: ''
+      spacing_above: small
+      icon_align: left
+      spacing_below: small
+      italic: false
+      file: null
+      background: ''
+      bold: false
+      underline: false
+      multiple: true
+      icon: fa:upload
+    name: oldFilesUpload
+    layout_properties: {grid_position: 'LCIDOQ,TTBLZR QCHSHL,LGBLYB'}
   - type: TextBox
     properties: {}
     name: text_box_2
-    layout_properties: {grid_position: 'LCIDOQ,OMKIPR'}
+    layout_properties: {grid_position: 'LCIDOQ,OMKIPR LJXVNF,APYNEK'}
+  - type: FileLoader
+    properties:
+      role: null
+      show_state: true
+      align: center
+      tooltip: ''
+      border: ''
+      file_types: .json
+      enabled: true
+      files: []
+      foreground: ''
+      visible: true
+      text: Upload
+      font_size: null
+      font: ''
+      spacing_above: small
+      icon_align: left
+      spacing_below: small
+      italic: false
+      file: null
+      background: ''
+      bold: false
+      underline: false
+      multiple: true
+      icon: fa:upload
+    name: newFilesUpload
+    layout_properties: {grid_position: 'LCIDOQ,OMKIPR XOAOYP,FNYFDV'}
   - type: Label
     properties: {role: null, align: left, tooltip: View your output .json here, border: '',
       foreground: '', visible: true, text: Output, font_size: null, font: '', spacing_above: small,
@@ -81,6 +135,33 @@ components:
     properties: {}
     name: output_dir
     layout_properties: {grid_position: 'HCEWRN,VEHEOW'}
+  - type: FileLoader
+    properties:
+      role: null
+      show_state: true
+      align: center
+      tooltip: ''
+      border: ''
+      file_types: .json
+      enabled: true
+      files: []
+      foreground: ''
+      visible: true
+      text: Output Loader
+      font_size: null
+      font: ''
+      spacing_above: small
+      icon_align: left
+      spacing_below: small
+      italic: false
+      file: null
+      background: ''
+      bold: false
+      underline: false
+      multiple: true
+      icon: fa:upload
+    name: file_loader_1
+    layout_properties: {grid_position: 'JPOCOZ,TSVHFV'}
   - type: Button
     properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
       foreground: '', visible: true, text: SUBMIT, font_size: null, font: '', spacing_above: medium,
