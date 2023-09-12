@@ -12,8 +12,8 @@ components:
   components:
   - type: Button
     properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:On Primary', visible: true, text: Switch to Multi-File Mode,
-      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      foreground: 'theme:On Primary', visible: true, text: Switch to DIRECTORY Mode,
+      font_size: 14, font: '', spacing_above: small, icon_align: left, spacing_below: small,
       italic: false, background: 'theme:On Primary Container', bold: false, underline: false,
       icon: ''}
     name: button_6
