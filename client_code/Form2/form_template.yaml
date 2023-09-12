@@ -65,7 +65,11 @@ components:
   - type: TextBox
     properties: {}
     name: old_dir
-    layout_properties: {grid_position: 'LCIDOQ,TTBLZR'}
+    layout_properties: {grid_position: 'LCIDOQ,TTBLZR GSLJZG,NUACEX'}
+  - type: FileLoader
+    properties: {}
+    name: file_loader_1
+    layout_properties: {grid_position: 'LCIDOQ,TTBLZR QCHSHL,LGBLYB'}
   - type: TextBox
     properties: {}
     name: text_box_2
