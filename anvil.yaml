@@ -1,5 +1,14 @@
 allow_embedding: false
 package_name: Localization_App
+db_schema:
+  table_1:
+    client: none
+    server: full
+    columns:
+    - name: File
+      type: media
+      admin_ui: {width: 200, order: 0}
+    title: Table 1
 name: Localization App
 startup_form: Form1
 native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap"
