@@ -68,7 +68,7 @@ components:
     layout_properties: {grid_position: 'LCIDOQ,TTBLZR GSLJZG,NUACEX'}
   - type: FileLoader
     properties: {}
-    name: file_loader_1
+    name: oldFilesUpload
     layout_properties: {grid_position: 'LCIDOQ,TTBLZR QCHSHL,LGBLYB'}
   - type: TextBox
     properties: {}
@@ -76,7 +76,7 @@ components:
     layout_properties: {grid_position: 'LCIDOQ,OMKIPR LJXVNF,APYNEK'}
   - type: FileLoader
     properties: {}
-    name: file_loader_2
+    name: newFilesUpload
     layout_properties: {grid_position: 'LCIDOQ,OMKIPR XOAOYP,FNYFDV'}
   - type: Label
     properties: {role: null, align: left, tooltip: View your output .json here, border: '',
