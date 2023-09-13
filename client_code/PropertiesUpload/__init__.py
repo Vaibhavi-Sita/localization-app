@@ -1,4 +1,4 @@
-from ._anvil_designer import Form2_copyTemplate
+from ._anvil_designer import PropertiesUploadTemplate
 from anvil import *
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -8,7 +8,7 @@ import anvil.media
 import json
 # import shutil
 
-class Form2_copy(Form2_copyTemplate):
+class PropertiesUpload(PropertiesUploadTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
