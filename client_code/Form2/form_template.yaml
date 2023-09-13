@@ -82,7 +82,7 @@ components:
       align: center
       tooltip: ''
       border: ''
-      file_types: .json
+      file_types: .json, .properties
       enabled: true
       files: []
       foreground: ''
@@ -109,7 +109,7 @@ components:
       align: center
       tooltip: ''
       border: ''
-      file_types: .json
+      file_types: .json, .properties
       enabled: true
       files: []
       foreground: ''
