@@ -1,0 +1,161 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: large, spacing_above: small, col_widths: '{"ZYQPXV":35,"RYIMHL":35}',
+    spacing_below: small, background: ''}
+  layout_properties: {slot: default}
+  name: column_panel_1
+  components:
+  - type: Button
+    properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
+      foreground: 'theme:On Primary', visible: true, text: SWITCH TO FILE MODE, font_size: 14,
+      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: 'theme:On Primary Container', bold: false, underline: false, icon: ''}
+    name: button_6
+    layout_properties: {grid_position: 'ZSTGLY,AKCHGO'}
+    event_bindings: {click: goToForm1}
+  - type: Spacer
+    properties: {height: 32}
+    name: spacer_3
+    layout_properties: {grid_position: 'KBZFLS,IMQGZC'}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: DIRECTORY MODE, font_size: 18, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_5
+    layout_properties: {grid_position: 'YEANIL,AKSVTX'}
+  - type: Spacer
+    properties: {height: 32}
+    name: spacer_1
+    layout_properties: {grid_position: 'GZAGCR,YDEJPB'}
+  - type: ColumnPanel
+    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"JNHMRT":20,"JXZWXC":40}',
+      spacing_below: small, background: 'theme:Surface Variant'}
+    layout_properties: {grid_position: 'HLLJYM,ZYQPXV'}
+    name: column_panel_3
+    components:
+    - type: Label
+      properties: {role: null, align: center, tooltip: Untranslated/partially translated .json,
+        border: '', foreground: '', visible: true, text: Old Files, font_size: 14,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      layout_properties: {grid_position: 'ICKYTC,JNHMRT', full_width_row: false}
+      name: label_1
+    - type: Button
+      properties: {role: null, align: right, tooltip: Untranslated/partially translated .json files,
+        border: '', enabled: true, foreground: 'theme:Primary', visible: true, text: '',
+        font_size: 18, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: '', bold: false, underline: false, icon: 'fa:info-circle'}
+      layout_properties: {grid_position: 'ICKYTC,JXZWXC', full_width_row: false}
+      name: button_1
+  - type: ColumnPanel
+    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"EZANMN":25,"OFMNJU":35}',
+      spacing_below: small, background: 'theme:Surface Variant'}
+    layout_properties: {grid_position: 'HLLJYM,RYIMHL'}
+    name: column_panel_2
+    components:
+    - type: Label
+      properties: {role: null, align: center, tooltip: Received/translated .json,
+        border: '', foreground: '', visible: true, text: Received Files, font_size: 14,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      layout_properties: {grid_position: 'HEUVDI,EZANMN'}
+      name: new_dir
+    - type: Button
+      properties: {role: null, align: right, tooltip: Received/translated .json files,
+        border: '', enabled: true, foreground: 'theme:Primary', visible: true, text: '',
+        font_size: 18, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: '', bold: false, underline: false, icon: 'fa:info-circle'}
+      name: button_2
+      layout_properties: {grid_position: 'HEUVDI,OFMNJU'}
+  - type: FileLoader
+    properties:
+      role: null
+      show_state: true
+      align: center
+      tooltip: ''
+      border: ''
+      file_types: .json
+      enabled: true
+      files: []
+      foreground: ''
+      visible: true
+      text: Upload
+      font_size: null
+      font: ''
+      spacing_above: small
+      icon_align: left
+      spacing_below: small
+      italic: false
+      file: null
+      background: ''
+      bold: false
+      underline: false
+      multiple: true
+      icon: fa:upload
+    name: oldFilesUpload
+    layout_properties: {grid_position: 'LCIDOQ,TTBLZR'}
+  - type: FileLoader
+    properties:
+      role: null
+      show_state: true
+      align: center
+      tooltip: ''
+      border: ''
+      file_types: .json
+      enabled: true
+      files: []
+      foreground: ''
+      visible: true
+      text: Upload
+      font_size: null
+      font: ''
+      spacing_above: small
+      icon_align: left
+      spacing_below: small
+      italic: false
+      file: null
+      background: ''
+      bold: false
+      underline: false
+      multiple: true
+      icon: fa:upload
+    name: newFilesUpload
+    layout_properties: {grid_position: 'LCIDOQ,OMKIPR'}
+  - type: Spacer
+    properties: {height: 32}
+    name: spacer_2
+    layout_properties: {grid_position: 'GTRJEI,FEVVLR'}
+  - type: Button
+    properties: {role: filled, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: SUBMIT & download, font_size: null, font: '',
+      spacing_above: medium, icon_align: left, spacing_below: medium, italic: false,
+      background: '', bold: false, underline: false, icon: ''}
+    layout_properties: {grid_position: 'XJTXTL,UNLUUQ'}
+    event_bindings: {click: getFiles}
+    name: submitDirs
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_1
+    layout_properties: {grid_position: 'SVFFLH,KZHWMQ'}
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: "On \"Submit & Download\" - all the individual updated\
+          \ files will be downloaded to your local\n\nNote:\n\n    1.  All old file\
+          \ names must match with the respective new file names. This will ensure\
+          \ the correct comparision of files.\n        Example: The untranslated \"\
+          german.json\" matches with the translated (received) \"german.json\"\n \
+          \   \n    2.  The resultant .json (updated files) will have the same file\
+          \ name ", font_size: null, font: '', spacing_above: small, icon_align: left,
+        spacing_below: small, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      name: label_2
+      layout_properties: {grid_position: 'LBMKXE,KNAWZN'}
