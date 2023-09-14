@@ -51,23 +51,23 @@ class Form2(Form2Template):
     return json.dumps(updated_data, indent=4)
 
   def update_json_values(self, old_data, new_data):
-
-    if isinstance(old_data, dict) and isinstance(new_data, dict):
-      updated_data = {}
-      for key in old_data:
-        if key in new_data:
-          updated_data[key] = self.update_json_values(old_data[key], new_data[key])
-        else:
-          updated_data[key] = old_data[key]
-    elif isinstance(old_data, list) and isinstance(new_data, list):
-      updated_data = []
-      for i in range(min(len(old_data), len(new_data))):
-        updated_data.append(update_json_values(old_data[i], new_data[i]))
-      if len(new_data) > len(old_data):
-        updated_data.extend(new_data[len(old_data):])
-      return updated_data
-    else:
-      return new_data
+      if isinstance(old_data, dict) and isinstance(new_data, dict):
+          updated_data = {}
+          for key in old_data:
+              if key in new_data:
+                  updated_data[key] = self.update_json_values(old_data[key], new_data[key])
+              else:
+                  updated_data[key] = old_data[key]
+          return updated_data
+      elif isinstance(old_data, list) and isinstance(new_data, list):
+          updated_data = []
+          for i in range(min(len(old_data), len(new_data))):
+              updated_data.append(update_json_values(old_data[i], new_data[i]))
+          if len(new_data) > len(old_data):
+              updated_data.extend(new_data[len(old_data):])
+          return updated_data
+      else:
+          return new_data
 
   def goToForm1(self, **event_args):
     open_form('Form1')
