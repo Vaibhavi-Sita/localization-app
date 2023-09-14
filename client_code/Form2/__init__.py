@@ -34,108 +34,13 @@ class Form2(Form2Template):
         if old_file.name == new_file.name:
           # old_json = json.load(old_file)
           # new_json = json.load(new_file)
-          print(old_file.content_type)
-          if(old_file.content_type == "application/json"):
-            old_json = json.loads(old_file.get_bytes())
-            new_json = json.loads(new_file.get_bytes())
+          old_json = json.loads(old_file.get_bytes())
+          new_json = json.loads(new_file.get_bytes())
   
-            updated_json = self.update_json(old_json, new_json)
-            updatedJsonFile = anvil.BlobMedia(content_type="text/plain", content=json.loads(updated_json).encode(), name=new_file.name)
-            anvil.media.download(updatedJsonFile)
-          else:
-            old_properties_data = {}
-            new_properties_data = {}
-
-            #OLD FILE TO JSON
-            current_section = None
-            old_file = old_file.get_bytes()
-            print(str(old_file, 'UTF-8'))
-            # for line in str(old_file, 'UTF-8'):
-            #   line = line.strip()
-            #   print(line)
-
-            # # Ignore comments and empty lines
-            # if not line or line.startswith('#'):
-            #     continue
-
-            # # Check if the line defines a new section
-            # if line.startswith('[') and line.endswith(']'):
-            #     current_section = line[1:-1]
-            #     old_properties_data[current_section] = {}
-            # else:
-                # key, value = line.split('=', 1)
-                # key = key.strip()
-                # value = value.strip()
-                # old_properties_data[current_section][key] = value
-            key, value = str(old_file, 'UTF-8').split('=', 1)
-            key = key.strip()
-            value = value.strip()
-            print(key,value)
-            old_properties_data[current_section][key] = value
-            # print(old_properties_data)
-
-
-            #NEW FILE TO JSON
-            current_section = None
-
-            for line in new_file.get_bytes():
-              line = line.strip()
-
-            # Ignore comments and empty lines
-              if not line or line.startswith('#'):
-                continue
-
-            # Check if the line defines a new section
-              if line.startswith('[') and line.endswith(']'):
-                  current_section = line[1:-1]
-                  new_properties_data[current_section] = {}
-              else:
-                  key, value = line.split('=', 1)
-                  key = key.strip()
-                  value = value.strip()
-                  new_properties_data[current_section][key] = value
-  
-              updated_json = self.update_json(old_properties_data, new_properties_data)
-              # updatedJsonFile = anvil.BlobMedia(content_type="text/plain", content=json.loads(updated_json).encode(), name=new_file.name)
-  
-              data = json.load(json_input)
-              properties_str = ''
-  
-              def format_section(section_name, section_data):
-                  formatted_section = f'[{section_name}]\n'
-                  for key, value in section_data.items():
-                      formatted_section += f'{key} = {value}\n'
-                  return formatted_section
-  
-              for section_name, section_data in json_data.items():
-                  properties_str += format_section(section_name, section_data)
-              
-              updatedPropertiesFile = anvil.BlobMedia(content_type="text/plain", content=properties_str.encode(), name=new_file.name)
-  
-              anvil.media.download(updatedPropertiesFile)
-              
-            # config = configparser.ConfigParser()
-            # config.read(old_file)
-        
-            # old_data = {}
-            # for section in config.sections():
-            #     old_data[section] = dict(config.items(section))
-            
-            # config.read(new_file)
-        
-            # new_data = {}
-            # for section in config.sections():
-            #     new_data[section] = dict(config.items(section))
-            # updated_json = self.update_json(old_json, new_json)
-            # updatedJsonFile = anvil.BlobMedia(content_type="text/plain", content=json.loads(updated_json).encode(), name=new_file.name)
-
-            # updatedPropertiesFile = configparser.ConfigParser()
-            # for section, section_data in data.items():
-            #   config[section] = section_data
-            # anvil.media.download(updatedPropertiesFile)
-            
-            
-
+          updated_json = self.update_json(old_json, new_json)
+          updatedJsonFile = anvil.BlobMedia(content_type="text/plain", content=json.loads(updated_json).encode(), name=new_file.name)
+          anvil.media.download(updatedJsonFile)
+          
 
   def update_json(self, old_data, new_data):
 
