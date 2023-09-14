@@ -36,7 +36,7 @@ class Form2(Form2Template):
           # new_json = json.load(new_file)
           old_json = json.loads(old_file.get_bytes())
           new_json = json.loads(new_file.get_bytes())
-  
+          print(old_json)
           updated_json = self.update_json(old_json, new_json)
           updatedJsonFile = anvil.BlobMedia(content_type="text/plain", content=json.loads(updated_json).encode(), name=new_file.name)
           anvil.media.download(updatedJsonFile)
