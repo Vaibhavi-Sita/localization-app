@@ -17,6 +17,8 @@ class Form1(Form1Template):
   def getData(self, **event_args):
     """This method is called when the submit button is clicked"""
     self.logs.text = ""
+    print(self.oldData)
+
     self.outputData.text = self.update_json(self.oldData, self.newData)    
     pass
 

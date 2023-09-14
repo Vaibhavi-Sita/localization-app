@@ -34,18 +34,21 @@ class Form2(Form2Template):
         if old_file.name == new_file.name:
           # old_json = json.load(old_file)
           # new_json = json.load(new_file)
-          old_json = json.loads(old_file.get_bytes())
-          new_json = json.loads(new_file.get_bytes())
-          print(old_json)
-          updated_json = self.update_json(old_json, new_json)
+          # old_json = json.loads(old_file.get_bytes())
+          # new_json = json.loads(new_file.get_bytes())
+          # print(old_json)
+          updated_json = self.update_json(old_file, new_file)
           updatedJsonFile = anvil.BlobMedia(content_type="text/plain", content=json.loads(updated_json).encode(), name=new_file.name)
           anvil.media.download(updatedJsonFile)
           
 
-  def update_json(self, old_data, new_data):
+  def update_json(self, old_file, new_file):
 
-    old_data = json.dumps(old_data)
-    new_data = json.dumps(new_data)
+    # old_data = json.dumps(old_data)
+    # new_data = json.dumps(new_data)
+    old_data = json.loads(old_file.get_bytes())
+    new_data = json.loads(new_data.get_bytes())
+    print(old_json)
     updated_data = self.update_json_values(old_data, new_data)
     
     return json.dumps(updated_data, indent=4)
